@@ -1,0 +1,10 @@
+name = "cf-ai-chat-app"
+main = "index.js"
+compatibility_date = "2024-01-01"
+
+[[kv_namespaces]]
+binding = "CHAT_MEMORY"
+id = "abc98fba9a4f4d56899823d458728e43"
+
+[ai]
+binding = "AI"

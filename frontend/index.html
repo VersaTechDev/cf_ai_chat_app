@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Chat</title>
+</head>
+<body>
+
+<h2>AI Chat</h2>
+
+<div id="chat"></div>
+
+<input id="input" placeholder="Type message..." />
+<button onclick="send()">Send</button>
+
+<script>
+const sessionId = Math.random().toString(36).substring(7);
+
+async function send() {
+  const input = document.getElementById("input");
+  const chat = document.getElementById("chat");
+
+  const userMsg = input.value;
+  chat.innerHTML += "<p><b>You:</b> " + userMsg + "</p>";
+
+  const res = await fetch("https://cf-ai-chat-app.vikrantcloud6.workers.dev", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      message: userMsg,
+      sessionId
+    })
+  });
+
+  const data = await res.json();
+
+  chat.innerHTML += "<p><b>AI:</b> " + data.reply + "</p>";
+
+  input.value = "";
+}
+</script>
+
+</body>
+</html>
