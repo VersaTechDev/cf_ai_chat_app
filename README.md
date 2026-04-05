@@ -32,3 +32,8 @@ Open frontend/index.html in browser
 - Type message
 - AI responds
 - It remembers conversation# cf_ai_chat_app
+
+## 📸 Screenshots
+
+### Chat Working
+![Chat](screenshots/Aichat.png)
